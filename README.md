@@ -2,6 +2,8 @@
 
 A full-stack tutor discovery and booking platform for Delhi NCR, connecting students with qualified home tutors.
 
+> Migrated from a vanilla HTML/CSS/JS implementation. Original repo: [[Gayatri-Home-Tutor-Vanilla](https://github.com/thedrishtigupta/Gayatri-Home-Tutor)]
+
 ---
 
 ## Tech Stack
