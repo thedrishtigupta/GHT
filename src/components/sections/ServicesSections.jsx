@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import OurTutorsSection from "./OurTutorsSection";
 import { SectionGrid } from "../layout/SectionGrid";
+import { PageSection } from "./PageSection";
 
 const SUBJECTS = [
   { color: "pink",   title: "Primary (1–5)",    subjects: ["English", "Hindi", "Mathematics", "EVS", "Computer"] },
@@ -112,17 +113,13 @@ export default function ServicesSections() {
         />
 
       {/* Our Expert Tutors */}
-      <section className="sections">
-        <div className="section-container">
-          <div className="section-heading" id="our-tutor-heading">
-            <h1>Our Expert Tutors</h1>
-          </div>
-          <p className="sections-p">Verified and experienced educators dedicated to your success</p>
-        </div>
-        <div className="section-body">
-          <OurTutorsSection />
-        </div>
-      </section>
+      <PageSection
+        id="our-tutor-heading"
+        title="Our Expert Tutors"
+        subtitle="Verified and experienced educators dedicated to your success"
+      >
+        <OurTutorsSection />
+      </PageSection>
     </>
   );
 }
