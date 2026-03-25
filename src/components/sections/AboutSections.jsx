@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { SectionGrid } from "../layout/SectionGrid";
 
 const VALUES = [
   { icon: "/assets/images/bullseye.png",    color: "green-text",  title: "Excellence",        desc: "We strive for academic excellence and holistic development of every student" },
@@ -49,7 +50,23 @@ export default function AboutSections() {
       </div>
 
       {/* Core Values */}
-      <div className="our-values">
+      <SectionGrid
+        title="Our Core Values"
+        subtitle="The principles that guide our work"
+        titleColor="blue-text"
+        gridClass="lower-values-grid"
+        items={VALUES}
+        renderItem={({ icon, color, title, desc }) => (
+          <div className="grid-els" key={title}>
+            <div className="grid-icon">
+              <img src={icon} alt={title} />
+            </div>
+            <h3 className={color}>{title}</h3>
+            <p className="grid-els-p">{desc}</p>
+          </div>
+        )}
+      />
+      {/* <div className="our-values">
         <div className="upper-values">
           <h2 className="blue-text">Our Core Values</h2>
           <p>The principles that guide our work</p>
@@ -63,7 +80,7 @@ export default function AboutSections() {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       {/* Testimonials */}
       <section className="card-section">
@@ -94,7 +111,22 @@ export default function AboutSections() {
       </div>
 
       {/* Why Choose Us */}
-      <div className="our-values">
+      <SectionGrid
+        title="Why Choose Us?"
+        subtitle="What sets us apart from others"
+        titleColor="pink-text"
+        gridClass="lower-choose-grid"
+        items={WHY_CHOOSE}
+        renderItem={(text) => (
+          <div className="choose-grid-els" key={text}>
+            <div className="grid-icon">
+              <img src="/assets/images/checkmark.png" alt="check" />
+            </div>
+            <p>{text}</p>
+          </div>
+        )}
+      />
+      {/* <div className="our-values">
         <div className="upper-values">
           <h2 className="pink-text">Why Choose Us?</h2>
           <p>What sets us apart from others</p>
@@ -107,7 +139,7 @@ export default function AboutSections() {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
     </>
   );
 }

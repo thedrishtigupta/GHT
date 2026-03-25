@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import OurTutorsSection from "./OurTutorsSection";
+import { SectionGrid } from "../layout/SectionGrid";
 
 const SUBJECTS = [
   { color: "pink",   title: "Primary (1–5)",    subjects: ["English", "Hindi", "Mathematics", "EVS", "Computer"] },
@@ -52,27 +53,25 @@ export default function ServicesSections() {
       </div>
 
       {/* Areas */}
-      <div className="our-values">
-        <div className="upper-values">
-          <h2>We Serve Across Delhi NCR</h2>
-          <p>Expert tutors available in your locality</p>
-        </div>
-        <div className="lower-area-grid">
-          {AREAS.map(({ color, name, detail }) => (
-            <div className={`area-grid-els ${color}`} key={name}>
-              <div className="contact-item">
-                <div className="contact-icon blue">
-                  <img src="/assets/images/location-black.png" alt="location" />
-                </div>
-                <div className="contact-text">
-                  <h3 className="area-h3">{name}</h3>
-                  <p className="area-p">{detail}</p>
-                </div>
+      <SectionGrid
+        title="We Serve Across Delhi NCR"
+        subtitle="Expert tutors available in your locality"
+        gridClass="lower-area-grid"
+        items={AREAS}
+        renderItem={({ color, name, detail }) => (
+          <div className={`area-grid-els ${color}`} key={name}>
+            <div className="contact-item">
+              <div className="contact-icon blue">
+                <img src="/assets/images/location-black.png" alt="location" />
+              </div>
+              <div className="contact-text">
+                <h3 className="area-h3">{name}</h3>
+                <p className="area-p">{detail}</p>
               </div>
             </div>
-          ))}
-        </div>
-      </div>
+          </div>
+        )}
+      />
 
       {/* Can't find your area */}
       <div className="about-mission">
@@ -97,21 +96,20 @@ export default function ServicesSections() {
       </div>
 
       {/* How It Works */}
-      <div className="our-values">
-        <div className="upper-values">
-          <h2 className="blue-text">How It Works?</h2>
-          <p>Four simple steps to connect with an expert tutor and start learning today.</p>
-        </div>
-        <div className="lower-values-grid how-it-works-grid">
-          {HOW_IT_WORKS.map(({ icon, color, step, desc }) => (
+      <SectionGrid
+        title="How It Works?"
+        subtitle="Four simple steps to connect with an expert tutor and start learning today."
+        titleColor="blue-text"
+        gridClass="lower-values-grid how-it-works-grid"
+        items={HOW_IT_WORKS}
+        renderItem={({ icon, color, step, desc }) => (
             <div className="grid-els how-it-works-grid-els" key={step}>
               <div className="grid-icon"><img src={icon} alt={step} /></div>
               <h3 className={color}>{step}</h3>
               <p>{desc}</p>
             </div>
-          ))}
-        </div>
-      </div>
+          )}
+        />
 
       {/* Our Expert Tutors */}
       <section className="sections">
